@@ -6,8 +6,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -28,14 +30,15 @@ import com.example.navegacion.components.TitleView
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DetailView(navController: NavController, id: Int, opcional: String?) {
+fun ThirdView(navController: NavController, id: Int, opcional: String?) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { TitleBar(name = "Detail view") },
+                title = { TitleBar(name = "Third view") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = Color.Blue
+                    containerColor = Color.Magenta
                 ),
+
                 navigationIcon = {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
                         navController.popBackStack()
@@ -44,18 +47,18 @@ fun DetailView(navController: NavController, id: Int, opcional: String?) {
             )
         }
     ) {
-        ContentDetailView(navController, id, opcional)
+        ContentThirdView(navController, id, opcional)
     }
 }
 
 @Composable
-fun ContentDetailView(navController: NavController, id: Int, opcional: String?) {
+fun ContentThirdView(navController: NavController, id: Int, opcional: String?) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleView(name = "Detail View")
+        TitleView(name = "Third View")
         Space()
         TitleView(name = id.toString())
         Space()
@@ -64,11 +67,7 @@ fun ContentDetailView(navController: NavController, id: Int, opcional: String?) 
         }else{
             TitleView(name = opcional.orEmpty())
         }
-        MainButton(name = "Third view", backColor = Color.Blue, color = Color.White) {
-            navController.navigate("Third/${id}/?${opcional}")
-        }
-        Space()
-        MainButton(name = "Return home", backColor = Color.Blue, color = Color.White) {
+        MainButton(name = "Return home", backColor = Color.Magenta, color = Color.White) {
             navController.navigate("Home")
         }
     }
