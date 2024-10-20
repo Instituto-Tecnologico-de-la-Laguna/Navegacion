@@ -27,13 +27,13 @@ import com.example.navegacion.components.TitleView
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DetailView(navController: NavController, id: Int, opcional: String?) {
+fun NewView(navController: NavController, id: Int, opcional: String?) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { TitleBar(name = "Detail view") },
+                title = { TitleBar(name = "New view") },
                 colors = TopAppBarDefaults.mediumTopAppBarColors(
-                    containerColor = Color.Blue
+                    containerColor = Color.Green
                 ),
                 navigationIcon = {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
@@ -43,18 +43,18 @@ fun DetailView(navController: NavController, id: Int, opcional: String?) {
             )
         }
     ) {
-        ContentDetailView(navController, id, opcional)
+        ContentNewView(navController, id, opcional)
     }
 }
 
 @Composable
-fun ContentDetailView(navController: NavController, id: Int, opcional: String?) {
+fun ContentNewView(navController: NavController, id: Int, opcional: String?) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TitleView(name = "Detail View")
+        TitleView(name = "New View")
         Space()
         TitleView(name = id.toString())
         Space()
@@ -63,8 +63,8 @@ fun ContentDetailView(navController: NavController, id: Int, opcional: String?) 
         }else{
             TitleView(name = opcional.orEmpty())
         }
-        MainButton(name = "New View", backColor = Color.Blue, color = Color.White) {
-            navController.navigate("New/${id}/?${opcional}")
+        MainButton(name = "Return home", backColor = Color.Green, color = Color.Black) {
+            navController.navigate("Home")
         }
     }
 }
