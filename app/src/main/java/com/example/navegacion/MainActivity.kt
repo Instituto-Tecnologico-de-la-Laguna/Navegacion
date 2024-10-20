@@ -15,6 +15,7 @@ import com.example.navegacion.ui.theme.NavegacionTheme
 import com.example.navegacion.views.DetailView
 import com.example.navegacion.views.HomeView
 
+//Scarlett A.
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

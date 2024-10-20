@@ -49,7 +49,7 @@ fun NewView(navController: NavController, id: Int, opcional: String?){
         ContentNewView(navController, id, opcional)
     }
 }
-
+//New
 @Composable
 fun ContentNewView(navController: NavController, id: Int, opcional: String?) {
     Column(
